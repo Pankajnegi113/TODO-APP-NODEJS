@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        <h1 id="heading">TODO App</h1>
+        <div id="main">
+                <!--to store form data and store in db--->
+            <form action="/create-task" method="POST">
+                    <div class="form-group">
+                        <h5>Description</h5>
+                        <input class="form-control form-control-lg"  name="description" id="description" placeholder="Your Task Here... " required>
+                    </div>
+                    <div class="form-row">  
+                        <div class="col">
+                          <h5>Category</h5>
+                          <select class="form-control" name="category">
+                            <option value="Personal">Personal</option>
+                            <option value="Home">Home</option>
+                            <option value="Work">Work</option>
+                            <option value="Other">Other</option>
+                           </select>
+                        </div>
+                        <div class="col">
+                            <h5>Due Date</h5> 
+                            <input  class="form-control" type="date" name="dueDate" id="dueDate" required>  <br>
+                        </div>
+                    </div>
+                   
+                    
+                <button type="submit" class="btn btn-primary btn-lg" id="add-btn"><strong> Add Task  <i class="fas fa-plus-square"></i></strong> </button>
+            </form>
+
+            <!--to display added task as the list items-->
+            <form action="/delete-task" method="GET">
+                <button type="submit" class="btn btn-primary btn-lg" id="del-btn"><strong>Delete Task  <i class="fas fa-trash-alt"></i></strong> </button>
+                <ul class="list-group">
+                    <%for(var task of tasks){%>
+                        <li class="list-group-item">
+                            <h5> <%=task.description%></h5>
+                            <input class="form-check" type="checkbox" name="check" value=<%=task._id%>>
+
+
+                            <%if(task.category=="Personal"){%>
+                                <button class="btn btn-warning"><%=task.category%></button>
+                            <%}
+                            else if(task.category=="Home"){%>
+                                <button class="btn btn-success"><%=task.category%></button>
+                            <%}
+                            else if(task.category=="Work"){%>
+                                <button class="btn btn-danger"><%=task.category%></button>
+                            <%}
+                            else if(task.category=="Other"){%>
+                                <button class="btn btn-secondary"><%=task.category%></button>
+                            <%}%>      
+                             
+                            <!--calender icon using fontAwesome icon-->
+                            <h6><i class="far fa-calendar-alt"></i>&nbsp<%=task.dueDate.toDateString()%></h6>
+                        </li><br>
+                    <%}%>
+                </ul>
+                
+            </form>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>

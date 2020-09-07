@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+/* attaching image to background of whole home page*/
+body{
+    background-image: url("../images/mountain4.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;    
+    color: black;    
+    font-weight: 600;
+}
+
+#heading{
+    text-align: center;
+}
+
+#container{
+    width: 100vw;
+}
+
+/*some basic properties*/
+#main{
+    width:40vw;
+    height: auto;
+    border: 1px solid white;
+    box-shadow: 0 8px 6px -6px red;
+    position: relative;
+    left: 30%;
+    top:20%;
+}
+
+/* properties for the form data*/
+form{
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+/* positing the btns*/
+#del-btn,#add-btn{
+    position: relative;
+}
+
+#del-btn{
+    left: 48%;
+    margin-top: -23%;
+    background-color: brown;
+}
+
+#add-btn{
+    left: 20%;
+    background-color: forestgreen;
+}
+
+.list-group {
+    margin-left: 1%;
+}
+
+li{
+    list-style-type:none;
+    margin-left: -2%;
+    background-color: cornflowerblue;
+}
+
+/* positing properties*/
+.list-group-item button{
+    width: 20%;
+    position: absolute;
+    right: 0%;
+    top: 30%;
+}
+
+li h5,li h6{
+    margin-left: 2%;
+}
+
+
+li h6{
+    font-style: oblique;
+    font-weight: 400;
+}
+
+.form-check{
+    position: absolute;
+    left: 0.5%;
+    top: 23%;
+}
